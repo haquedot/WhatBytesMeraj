@@ -9,7 +9,7 @@ function TestCard({ updateStats, stats }) {
   const handleOpen = () => setOpen(!open);
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-white py-5 px-3 rounded-md border border-gray-200">
+    <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-white py-5 px-3 rounded-lg border-2 border-gray-200">
       {/* Image Section */}
       <div className="w-full md:w-auto flex justify-center md:justify-start">
         <Image
@@ -34,7 +34,7 @@ function TestCard({ updateStats, stats }) {
       {/* Button Section */}
       <div className="w-full md:w-auto flex justify-center md:justify-start">
         <button
-          className="px-4 py-2 rounded-md bg-[#132278] hover:bg-[#2b3a93] text-white font-bold border border-black"
+          className="px-6 py-2 rounded-md bg-blue-900 hover:bg-blue-950 text-white font-bold border-2 border-black"
           onClick={handleOpen}
         >
           Update

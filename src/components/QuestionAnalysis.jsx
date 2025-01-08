@@ -50,15 +50,15 @@ const QuestionAnalysis = () => {
   const { score } = useSelector((state) => state.score);
   const chartData = [{ solved: score, total: 15 }];
   return (
-    <div className="bg-white p-5 border border-gray-200 rounded-lg">
-      <div className="flex items-center justify-between">
+    <div className="bg-white p-5 border-2 border-gray-200 rounded-lg">
+      <div className="flex items-center justify-between mb-3">
         <h1 className="text-xl font-semibold text-black">Question Analysis</h1>
         <span className="text-blue-600 font-semibold">
           {chartData[0].solved}/{chartData[0].total}
         </span>
       </div>
       <p className="text-sm text-black mb-10">
-        <span className="font-semibold">
+        <span className="font-semibold text-gray-800">
           You solved {chartData[0].solved} questions correct out of{" "}
           {chartData[0].total}.
         </span>{" "}

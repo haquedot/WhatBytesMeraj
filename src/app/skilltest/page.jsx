@@ -19,11 +19,11 @@ function Page() {
     setStats((prevStats) => ({ ...prevStats, ...newStats }));
   };
   return (
-    <div className="min-h-screen w-full bg-white pt-20 max-h-screen overflow-y-auto">
-      <h1 className="text-xl font-semibold text-gray-600 pt-10 pl-10">
+    <div className="min-h-screen w-full bg-white pt-20 max-h-screen px-4 xl:px-10 overflow-y-auto">
+      <h1 className="text-xl font-semibold text-gray-600 pt-10">
         Skill Test
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-[60%,40%] px-10 pt-5 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-[60%,40%] pt-5 gap-10">
         <div className="flex flex-col gap-5">
           <TestCard updateStats={updateStats} stats={stats} />
           <QuickStatics stats={stats} />

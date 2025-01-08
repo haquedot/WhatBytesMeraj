@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 export default function QuickStatics() {
   const { rank, percentile, score } = useSelector((state) => state.score);
   return (
-    <div className="bg-white py-5 px-6 rounded-md border border-gray-200 shadow-sm">
+    <div className="bg-white py-5 px-6 rounded-lg border-2 border-gray-200">
       <h1 className="text-lg font-semibold text-gray-800 mb-4">
         Quick Statistics
       </h1>

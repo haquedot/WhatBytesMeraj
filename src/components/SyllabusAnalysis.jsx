@@ -25,30 +25,30 @@ const ProgressBarContainer = () => {
       label: "HTML Tools, Forms, History",
       percentage: 80,
       color: "bg-blue-500",
-      bgColor: "bg-blue-100",
+      bgColor: "bg-blue-50",
     },
     {
       label: "Tags & References in HTML",
       percentage: 60,
       color: "bg-orange-500",
-      bgColor: "bg-orange-100",
+      bgColor: "bg-orange-50",
     },
     {
       label: "Tables & References in HTML",
       percentage: 24,
       color: "bg-red-500",
-      bgColor: "bg-red-100",
+      bgColor: "bg-red-50",
     },
     {
       label: "Tables & CSS Basics",
       percentage: 96,
       color: "bg-green-500",
-      bgColor: "bg-green-100",
+      bgColor: "bg-green-50",
     },
   ];
 
   return (
-    <div className="border border-gray-200 px-6 pt-5 pb-10 rounded-md bg-white">
+    <div className="border-2 border-gray-200 px-6 pt-5 pb-10 rounded-lg bg-white">
       <h3 className="text-lg font-bold mb-6 text-gray-900">
         Syllabus Wise Analysis
       </h3>

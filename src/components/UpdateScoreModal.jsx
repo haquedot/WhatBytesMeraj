@@ -77,23 +77,23 @@ export default function UpdateScoreModal({ open, handleOpen, stats }) {
           {inputData.map((data) => (
             <div
               key={data.id}
-              className="flex justify-between items-center gap-4"
+              className="block lg:flex justify-between items-center gap-3"
             >
-              <label className="flex items-center gap-3">
+              <label className="flex items-center gap-3 mb-2 lg:mb-0">
                 <div className="h-6 w-6 flex items-center justify-center text-xs text-white bg-blue-900 rounded-full ">
                   {data.id}
                 </div>
                 <p className="text-md font-normal text-black">
-                  {data.label}
+                  Update your <span className="font-semibold">{data.label}</span>
                 </p>
               </label>
               <div className="flex flex-col">
                 <input
-                  // type={data.type}
+                  type="number"
                   placeholder={data.placeholder}
                   value={formValues[data.key]}
                   onChange={(e) => handleChange(data.key, e.target.value)}
-                  className={`border border-1.5 rounded-md p-2 flex-1 ${formValues[data.key] ? "border-blue-500" : "border-red-500"
+                  className={`text-black font-semibold border border-1.5 rounded-md p-2 flex-1 ${formValues[data.key] ? "border-blue-500" : "border-red-500"
                     }`}
                 />
                 {!formValues[data.key] && (
@@ -108,7 +108,7 @@ export default function UpdateScoreModal({ open, handleOpen, stats }) {
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       </DialogBody>
       <DialogFooter className="flex justify-end gap-4">
-        <Button variant="text" onClick={handleOpen} className="border-2 border-blue-900 rounded-lg" >
+        <Button variant="text" onClick={handleOpen} className="border-2 border-blue-900 text-blue-900 rounded-lg hover:bg-gray-100" >
           Cancel
         </Button>
         <Button className="flex items-center bg-blue-900 text-white group px-6 border-2 border-black" onClick={handleSave}>
