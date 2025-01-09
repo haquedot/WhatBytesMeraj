@@ -12,7 +12,6 @@ export default function QuickStatics() {
         Quick Statistics
       </h1>
       <div className="flex flex-col sm:flex-row justify-evenly items-center w-full gap-4 sm:gap-0">
-        {/* Rank */}
         <div className="flex items-center gap-4 sm:px-3 sm:py-3 w-full sm:w-auto">
           <div className="bg-[#f4f6f8] p-3 rounded-full">
             <HiMiniTrophy size={18} className="text-yellow-500" />
@@ -25,7 +24,6 @@ export default function QuickStatics() {
           </div>
         </div>
 
-        {/* Percentile */}
         <div className="flex items-center gap-4 sm:border-l sm:px-5 sm:py-3 w-full sm:w-auto">
           <div className="bg-[#f4f6f8] p-3 rounded-full">
             <MdCalendarToday size={18} className="text-blue-700" />
@@ -38,7 +36,6 @@ export default function QuickStatics() {
           </div>
         </div>
 
-        {/* Correct Answers */}
         <div className="flex items-center gap-4 sm:border-l sm:px-5 sm:py-3 sm:border-gray-200 w-full sm:w-auto">
           <div className="bg-[#f4f6f8] p-3 rounded-full">
             <BsCheckSquareFill size={18} className="text-green-500" />

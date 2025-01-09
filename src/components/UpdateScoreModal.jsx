@@ -19,7 +19,9 @@ const inputData = [
     key: "rank",
     label: "Rank",
     placeholder: "Enter your Rank",
-    message: "Please enter  Rank",
+    message: "Please enter a valid Rank",
+    min: 0,
+    max: 100,
   },
   {
     id: 2,
@@ -27,6 +29,8 @@ const inputData = [
     label: "Percentile",
     placeholder: "Enter your Percentile",
     message: "Please enter a value between 0 and 100",
+    min: 0,
+    max: 100,
   },
   {
     id: 3,
@@ -34,6 +38,8 @@ const inputData = [
     label: "Current Score (out of 15)",
     placeholder: "Enter your current score",
     message: "Please enter a value between 0 and 15",
+    min: 0,
+    max: 15,
   },
 ];
 
@@ -42,9 +48,18 @@ export default function UpdateScoreModal({ open, handleOpen, stats }) {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
 
-  const handleChange = (key, value) => {
-    setFormValues({ ...formValues, [key]: value });
+  const handleChange = (key, value, min, max) => {
+    if (/^\d*$/.test(value)) {
+      const numericValue = parseInt(value, 10);
+      if (numericValue >= min && numericValue <= max) {
+        setFormValues({ ...formValues, [key]: value });
+        setError("");
+      } else if (value === "") {
+        setFormValues({ ...formValues, [key]: "" });
+      }
+    }
   };
+
   const handleSave = () => {
     const hasEmptyField = Object.values(formValues).some(
       (value) => value === ""
@@ -84,7 +99,8 @@ export default function UpdateScoreModal({ open, handleOpen, stats }) {
                   {data.id}
                 </div>
                 <p className="text-md font-normal text-black">
-                  Update your <span className="font-semibold">{data.label}</span>
+                  Update your{" "}
+                  <span className="font-semibold">{data.label}</span>
                 </p>
               </label>
               <div className="flex flex-col">
@@ -92,9 +108,26 @@ export default function UpdateScoreModal({ open, handleOpen, stats }) {
                   type="number"
                   placeholder={data.placeholder}
                   value={formValues[data.key]}
-                  onChange={(e) => handleChange(data.key, e.target.value)}
-                  className={`text-black font-semibold border border-1.5 rounded-md p-2 flex-1 ${formValues[data.key] ? "border-blue-500" : "border-red-500"
-                    }`}
+                  onChange={(e) =>
+                    handleChange(
+                      data.key,
+                      e.target.value,
+                      data.min,
+                      data.max
+                    )
+                  }
+                  onKeyDown={(e) => {
+                    if (["e", "E", "+", "-"].includes(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className={`text-black font-semibold border border-1.5 rounded-md p-2 flex-1 ${
+                    formValues[data.key] ? "border-blue-500" : "border-red-500"
+                  }`}
+                  style={{
+                    WebkitAppearance: "none",
+                    MozAppearance: "textfield",
+                  }}
                 />
                 {!formValues[data.key] && (
                   <span className="text-red-500 text-sm mt-1">
@@ -108,11 +141,19 @@ export default function UpdateScoreModal({ open, handleOpen, stats }) {
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
       </DialogBody>
       <DialogFooter className="flex justify-end gap-4">
-        <Button variant="text" onClick={handleOpen} className="border-2 border-blue-900 text-blue-900 rounded-lg hover:bg-gray-100" >
+        <Button
+          variant="text"
+          onClick={handleOpen}
+          className="border-2 border-blue-900 text-blue-900 rounded-lg hover:bg-gray-100"
+        >
           Cancel
         </Button>
-        <Button className="flex items-center bg-blue-900 text-white group px-6 border-2 border-black" onClick={handleSave}>
-          Save <FaArrowRight className="ms-2 group-hover:translate-x-1 transition-all duration-300" />
+        <Button
+          className="flex items-center bg-blue-900 text-white group px-6 border-2 border-black"
+          onClick={handleSave}
+        >
+          Save{" "}
+          <FaArrowRight className="ms-2 group-hover:translate-x-1 transition-all duration-300" />
         </Button>
       </DialogFooter>
     </Dialog>

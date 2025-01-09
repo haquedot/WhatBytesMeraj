@@ -10,7 +10,6 @@ function TestCard({ updateStats, stats }) {
 
   return (
     <div className="flex flex-col md:flex-row gap-4 justify-between items-center bg-white py-5 px-3 rounded-lg border-2 border-gray-200">
-      {/* Image Section */}
       <div className="w-full md:w-auto flex justify-center md:justify-start">
         <Image
           src={Htmlpng}
@@ -21,7 +20,6 @@ function TestCard({ updateStats, stats }) {
         />
       </div>
 
-      {/* Text Section */}
       <div className="text-black flex-1 text-center md:text-left">
         <h1 className="text-[16px] font-semibold">
           Hyper Text Markup Language
@@ -31,7 +29,6 @@ function TestCard({ updateStats, stats }) {
         </p>
       </div>
 
-      {/* Button Section */}
       <div className="w-full md:w-auto flex justify-center md:justify-start">
         <button
           className="px-6 py-2 rounded-md bg-blue-900 hover:bg-blue-950 text-white font-bold border-2 border-black"
